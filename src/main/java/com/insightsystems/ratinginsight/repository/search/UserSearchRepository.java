@@ -1,0 +1,10 @@
+package com.insightsystems.ratinginsight.repository.search;
+
+import com.insightsystems.ratinginsight.domain.User;
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
+
+/**
+ * Spring Data Elasticsearch repository for the User entity.
+ */
+public interface UserSearchRepository extends ElasticsearchRepository<User, Long> {
+}
