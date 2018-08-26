@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Reviewer.
+    -->
+    <changeSet id="20180825203835-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="profile_id"
+                                 baseTableName="reviewer"
+                                 constraintName="fk_reviewer_profile_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reviewer_profile"/>
+
+        <addForeignKeyConstraint baseColumnNames="reviewers_id"
+                                 baseTableName="reviewer_review"
+                                 constraintName="fk_reviewer_review_reviewers_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reviewer"/>
+        <addForeignKeyConstraint baseColumnNames="reviews_id"
+                                 baseTableName="reviewer_review"
+                                 constraintName="fk_reviewer_review_reviews_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="review"/>
+        
+    </changeSet>
+</databaseChangeLog>

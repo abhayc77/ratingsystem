@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reviewerProfile">
+            <h2><span jhiTranslate="ratingSystemApp.reviewerProfile.detail.title">Reviewer Profile</span> {{reviewerProfile.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ratingSystemApp.reviewerProfile.totalReviews">Total Reviews</span></dt>
+                <dd>
+                    <span>{{reviewerProfile.totalReviews}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewerProfile.reviewerRanking">Reviewer Ranking</span></dt>
+                <dd>
+                    <span>{{reviewerProfile.reviewerRanking}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewerProfile.totalHelpfulVotes">Total Helpful Votes</span></dt>
+                <dd>
+                    <span>{{reviewerProfile.totalHelpfulVotes}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewerProfile.recentRating">Recent Rating</span></dt>
+                <dd>
+                    <span>{{reviewerProfile.recentRating}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reviewer-profile-rating-insight', reviewerProfile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

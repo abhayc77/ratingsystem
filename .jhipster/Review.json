@@ -1,0 +1,99 @@
+{
+    "name": "Review",
+    "fields": [
+        {
+            "fieldName": "productID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productURL",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reviewContent",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "language",
+            "fieldType": "Language",
+            "fieldValues": "FRENCH,ENGLISH,SPANISH"
+        },
+        {
+            "fieldName": "reviewDateTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "rating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fullRating",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "reviewStatus",
+            "fieldType": "ReviewStatus",
+            "fieldValues": "UNKNOWN,NEW_REVIEW,PROCESSED_REVIEW"
+        },
+        {
+            "fieldName": "helpfulVotes",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "totalVotes",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "verifiedPurchase",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "realName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "reviewAnalysis",
+            "otherEntityName": "reviewAnalysis",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "review"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "reviewer",
+            "otherEntityName": "reviewer",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "review"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "product",
+            "otherEntityName": "product",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "review"
+        }
+    ],
+    "changelogDate": "20180825203833",
+    "javadoc": "Review entity.\n@author Abhay.",
+    "entityTableName": "review",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch",
+    "angularJSSuffix": "ratingInsight"
+}

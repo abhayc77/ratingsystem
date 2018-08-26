@@ -1,0 +1,43 @@
+{
+    "name": "ReviewAnalysis",
+    "fields": [
+        {
+            "fieldName": "uid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "sentiment",
+            "fieldType": "ReviewSentiment",
+            "fieldValues": "POSITIVE,NEUTRAL,NEGATIVE"
+        },
+        {
+            "fieldName": "sentimentValue",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "reviewAnalysisDateTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "insight",
+            "fieldType": "ReviewInsight",
+            "fieldValues": "UNKKOWN,GENUINE,FAKE"
+        },
+        {
+            "fieldName": "reviewInsightData",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180825203834",
+    "entityTableName": "review_analysis",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch",
+    "angularJSSuffix": "ratingInsight"
+}

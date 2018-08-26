@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="ratingSystemApp.reviewerProfile.home.title">Reviewer Profiles</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-reviewer-profile-rating-insight" [routerLink]="['/reviewer-profile-rating-insight/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span class="hidden-sm-down"  jhiTranslate="ratingSystemApp.reviewerProfile.home.createLabel">
+            Create new Reviewer Profile
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'ratingSystemApp.reviewerProfile.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <fa-icon [icon]="'search'"></fa-icon>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <fa-icon [icon]="'trash-alt'"></fa-icon>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="reviewerProfiles">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalReviews"><span jhiTranslate="ratingSystemApp.reviewerProfile.totalReviews">Total Reviews</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="reviewerRanking"><span jhiTranslate="ratingSystemApp.reviewerProfile.reviewerRanking">Reviewer Ranking</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="totalHelpfulVotes"><span jhiTranslate="ratingSystemApp.reviewerProfile.totalHelpfulVotes">Total Helpful Votes</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="recentRating"><span jhiTranslate="ratingSystemApp.reviewerProfile.recentRating">Recent Rating</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let reviewerProfile of reviewerProfiles ;trackBy: trackId">
+                <td><a [routerLink]="['/reviewer-profile-rating-insight', reviewerProfile.id, 'view' ]">{{reviewerProfile.id}}</a></td>
+                <td>{{reviewerProfile.totalReviews}}</td>
+                <td>{{reviewerProfile.reviewerRanking}}</td>
+                <td>{{reviewerProfile.totalHelpfulVotes}}</td>
+                <td>{{reviewerProfile.recentRating}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/reviewer-profile-rating-insight', reviewerProfile.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/reviewer-profile-rating-insight', reviewerProfile.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'reviewer-profile-rating-insight/'+ reviewerProfile.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

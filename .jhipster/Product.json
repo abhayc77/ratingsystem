@@ -1,0 +1,75 @@
+{
+    "name": "Product",
+    "fields": [
+        {
+            "fieldName": "productID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uid",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "shortDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "longDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productImageURL",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productURL",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "supplierID",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "averageRating",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "ratingCount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "productStatus",
+            "fieldType": "ProductStatus",
+            "fieldValues": "UNKNOWN,ACTIVE,DISCONTINUED"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "review",
+            "otherEntityName": "review",
+            "otherEntityField": "title",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20180825203832",
+    "entityTableName": "product",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch",
+    "angularJSSuffix": "ratingInsight"
+}

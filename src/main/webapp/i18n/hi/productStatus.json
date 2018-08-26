@@ -1,0 +1,10 @@
+{
+    "ratingSystemApp": {
+        "ProductStatus" : {
+            "null": "",
+            "UNKNOWN": "UNKNOWN",
+            "ACTIVE": "ACTIVE",
+            "DISCONTINUED": "DISCONTINUED"
+        }
+    }
+}

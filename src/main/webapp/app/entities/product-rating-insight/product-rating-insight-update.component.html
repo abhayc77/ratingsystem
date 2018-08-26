@@ -1,0 +1,93 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-product-rating-insight-heading" jhiTranslate="ratingSystemApp.product.home.createOrEditLabel">Create or edit a Product</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!product.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="product.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.productID" for="field_productID">Product ID</label>
+                    <input type="text" class="form-control" name="productID" id="field_productID"
+                        [(ngModel)]="product.productID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.uid" for="field_uid">Uid</label>
+                    <input type="text" class="form-control" name="uid" id="field_uid"
+                        [(ngModel)]="product.uid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.productName" for="field_productName">Product Name</label>
+                    <input type="text" class="form-control" name="productName" id="field_productName"
+                        [(ngModel)]="product.productName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.price" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                        [(ngModel)]="product.price" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.shortDescription" for="field_shortDescription">Short Description</label>
+                    <input type="text" class="form-control" name="shortDescription" id="field_shortDescription"
+                        [(ngModel)]="product.shortDescription" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.longDescription" for="field_longDescription">Long Description</label>
+                    <input type="text" class="form-control" name="longDescription" id="field_longDescription"
+                        [(ngModel)]="product.longDescription" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.productImageURL" for="field_productImageURL">Product Image URL</label>
+                    <input type="text" class="form-control" name="productImageURL" id="field_productImageURL"
+                        [(ngModel)]="product.productImageURL" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.productURL" for="field_productURL">Product URL</label>
+                    <input type="text" class="form-control" name="productURL" id="field_productURL"
+                        [(ngModel)]="product.productURL" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.supplierID" for="field_supplierID">Supplier ID</label>
+                    <input type="text" class="form-control" name="supplierID" id="field_supplierID"
+                        [(ngModel)]="product.supplierID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.averageRating" for="field_averageRating">Average Rating</label>
+                    <input type="number" class="form-control" name="averageRating" id="field_averageRating"
+                        [(ngModel)]="product.averageRating" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.ratingCount" for="field_ratingCount">Rating Count</label>
+                    <input type="number" class="form-control" name="ratingCount" id="field_ratingCount"
+                        [(ngModel)]="product.ratingCount" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.product.productStatus" for="field_productStatus">Product Status</label>
+                    <select class="form-control" name="productStatus" [(ngModel)]="product.productStatus" id="field_productStatus" >
+                        <option value="UNKNOWN">{{'ratingSystemApp.ProductStatus.UNKNOWN' | translate}}</option>
+                        <option value="ACTIVE">{{'ratingSystemApp.ProductStatus.ACTIVE' | translate}}</option>
+                        <option value="DISCONTINUED">{{'ratingSystemApp.ProductStatus.DISCONTINUED' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="ratingSystemApp.product.review" for="field_review">Review</label>
+                    <select class="form-control" id="field_review" multiple name="review" [(ngModel)]="product.reviews">
+                        <option [ngValue]="getSelected(product.reviews, reviewOption)" *ngFor="let reviewOption of reviews; trackBy: trackReviewById">{{reviewOption.title}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

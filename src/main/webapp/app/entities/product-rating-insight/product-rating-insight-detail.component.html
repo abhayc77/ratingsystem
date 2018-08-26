@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="product">
+            <h2><span jhiTranslate="ratingSystemApp.product.detail.title">Product</span> {{product.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ratingSystemApp.product.productID">Product ID</span></dt>
+                <dd>
+                    <span>{{product.productID}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.uid">Uid</span></dt>
+                <dd>
+                    <span>{{product.uid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.productName">Product Name</span></dt>
+                <dd>
+                    <span>{{product.productName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.price">Price</span></dt>
+                <dd>
+                    <span>{{product.price}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.shortDescription">Short Description</span></dt>
+                <dd>
+                    <span>{{product.shortDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.longDescription">Long Description</span></dt>
+                <dd>
+                    <span>{{product.longDescription}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.productImageURL">Product Image URL</span></dt>
+                <dd>
+                    <span>{{product.productImageURL}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.productURL">Product URL</span></dt>
+                <dd>
+                    <span>{{product.productURL}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.supplierID">Supplier ID</span></dt>
+                <dd>
+                    <span>{{product.supplierID}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.averageRating">Average Rating</span></dt>
+                <dd>
+                    <span>{{product.averageRating}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.ratingCount">Rating Count</span></dt>
+                <dd>
+                    <span>{{product.ratingCount}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.productStatus">Product Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ratingSystemApp.ProductStatus.' + product.productStatus}}">{{product.productStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.product.review">Review</span></dt>
+                <dd>
+                    <span *ngFor="let review of product.reviews; let last = last">
+                        <a [routerLink]="['/review-rating-insight', review?.id, 'view' ]">{{review.title}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/product-rating-insight', product.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

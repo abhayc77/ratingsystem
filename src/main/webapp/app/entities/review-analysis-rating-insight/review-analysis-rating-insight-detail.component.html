@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reviewAnalysis">
+            <h2><span jhiTranslate="ratingSystemApp.reviewAnalysis.detail.title">Review Analysis</span> {{reviewAnalysis.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ratingSystemApp.reviewAnalysis.uid">Uid</span></dt>
+                <dd>
+                    <span>{{reviewAnalysis.uid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewAnalysis.sentiment">Sentiment</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ratingSystemApp.ReviewSentiment.' + reviewAnalysis.sentiment}}">{{reviewAnalysis.sentiment}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewAnalysis.sentimentValue">Sentiment Value</span></dt>
+                <dd>
+                    <span>{{reviewAnalysis.sentimentValue}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewAnalysis.reviewAnalysisDateTime">Review Analysis Date Time</span></dt>
+                <dd>
+                    <span>{{reviewAnalysis.reviewAnalysisDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewAnalysis.insight">Insight</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ratingSystemApp.ReviewInsight.' + reviewAnalysis.insight}}">{{reviewAnalysis.insight}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewAnalysis.reviewInsightData">Review Insight Data</span></dt>
+                <dd>
+                    <span>{{reviewAnalysis.reviewInsightData}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/review-analysis-rating-insight', reviewAnalysis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

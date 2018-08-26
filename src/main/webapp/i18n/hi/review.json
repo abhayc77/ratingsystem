@@ -1,0 +1,39 @@
+
+{
+    "ratingSystemApp": {
+        "review" : {
+            "home": {
+                "title": "Reviews",
+                "createLabel": "नया Review बनाएँ",
+                "createOrEditLabel": "Review बनाएँ या संपादित करें",
+                "search": "Review खोजें"
+            },
+            "created": "एक नया Review [identifier: {{ param }}] तैयार है",
+            "updated": "एक Review [identifier: {{ param }}] का अद्यतन हुआ है",
+            "deleted": "Review [identifier: {{ param }}] हटा दिया है",
+            "delete": {
+                "question": "Review [id: {{ id }}] हटाने की पुष्टि करें"
+            },
+            "detail": {
+                "title": "Review"
+            },
+            "productID": "Product ID",
+            "uid": "Uid",
+            "productURL": "Product URL",
+            "title": "Title",
+            "reviewContent": "Review Content",
+            "language": "Language",
+            "reviewDateTime": "Review Date Time",
+            "rating": "Rating",
+            "fullRating": "Full Rating",
+            "reviewStatus": "Review Status",
+            "helpfulVotes": "Helpful Votes",
+            "totalVotes": "Total Votes",
+            "verifiedPurchase": "Verified Purchase",
+            "realName": "Real Name",
+            "reviewAnalysis": "Review Analysis",
+            "reviewer": "Reviewer",
+            "product": "Product"
+        }
+    }
+}

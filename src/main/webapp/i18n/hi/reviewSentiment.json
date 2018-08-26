@@ -1,0 +1,10 @@
+{
+    "ratingSystemApp": {
+        "ReviewSentiment" : {
+            "null": "",
+            "POSITIVE": "POSITIVE",
+            "NEUTRAL": "NEUTRAL",
+            "NEGATIVE": "NEGATIVE"
+        }
+    }
+}

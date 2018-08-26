@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-reviewer-rating-insight-heading" jhiTranslate="ratingSystemApp.reviewer.home.createOrEditLabel">Create or edit a Reviewer</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!reviewer.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="reviewer.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.reviewerID" for="field_reviewerID">Reviewer ID</label>
+                    <input type="text" class="form-control" name="reviewerID" id="field_reviewerID"
+                        [(ngModel)]="reviewer.reviewerID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.uid" for="field_uid">Uid</label>
+                    <input type="text" class="form-control" name="uid" id="field_uid"
+                        [(ngModel)]="reviewer.uid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.username" for="field_username">Username</label>
+                    <input type="text" class="form-control" name="username" id="field_username"
+                        [(ngModel)]="reviewer.username" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.firstName" for="field_firstName">First Name</label>
+                    <input type="text" class="form-control" name="firstName" id="field_firstName"
+                        [(ngModel)]="reviewer.firstName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.lastName" for="field_lastName">Last Name</label>
+                    <input type="text" class="form-control" name="lastName" id="field_lastName"
+                        [(ngModel)]="reviewer.lastName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="reviewer.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.phoneNumber" for="field_phoneNumber">Phone Number</label>
+                    <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                        [(ngModel)]="reviewer.phoneNumber" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.streetAddress" for="field_streetAddress">Street Address</label>
+                    <input type="text" class="form-control" name="streetAddress" id="field_streetAddress"
+                        [(ngModel)]="reviewer.streetAddress" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.postalCode" for="field_postalCode">Postal Code</label>
+                    <input type="text" class="form-control" name="postalCode" id="field_postalCode"
+                        [(ngModel)]="reviewer.postalCode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.city" for="field_city">City</label>
+                    <input type="text" class="form-control" name="city" id="field_city"
+                        [(ngModel)]="reviewer.city" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.stateProvince" for="field_stateProvince">State Province</label>
+                    <input type="text" class="form-control" name="stateProvince" id="field_stateProvince"
+                        [(ngModel)]="reviewer.stateProvince" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewer.profile" for="field_profile">Profile</label>
+                    <select class="form-control" id="field_profile" name="profile" [(ngModel)]="reviewer.profileId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reviewerProfileOption.id" *ngFor="let reviewerProfileOption of profiles; trackBy: trackReviewerProfileById">{{reviewerProfileOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="ratingSystemApp.reviewer.review" for="field_review">Review</label>
+                    <select class="form-control" id="field_review" multiple name="review" [(ngModel)]="reviewer.reviews">
+                        <option [ngValue]="getSelected(reviewer.reviews, reviewOption)" *ngFor="let reviewOption of reviews; trackBy: trackReviewById">{{reviewOption.title}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

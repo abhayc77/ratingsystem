@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-review-rating-insight-heading" jhiTranslate="ratingSystemApp.review.home.createOrEditLabel">Create or edit a Review</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!review.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="review.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.productID" for="field_productID">Product ID</label>
+                    <input type="text" class="form-control" name="productID" id="field_productID"
+                        [(ngModel)]="review.productID" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.uid" for="field_uid">Uid</label>
+                    <input type="text" class="form-control" name="uid" id="field_uid"
+                        [(ngModel)]="review.uid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.productURL" for="field_productURL">Product URL</label>
+                    <input type="text" class="form-control" name="productURL" id="field_productURL"
+                        [(ngModel)]="review.productURL" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.title" for="field_title">Title</label>
+                    <input type="text" class="form-control" name="title" id="field_title"
+                        [(ngModel)]="review.title" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.reviewContent" for="field_reviewContent">Review Content</label>
+                    <input type="text" class="form-control" name="reviewContent" id="field_reviewContent"
+                        [(ngModel)]="review.reviewContent" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.language" for="field_language">Language</label>
+                    <select class="form-control" name="language" [(ngModel)]="review.language" id="field_language" >
+                        <option value="FRENCH">{{'ratingSystemApp.Language.FRENCH' | translate}}</option>
+                        <option value="ENGLISH">{{'ratingSystemApp.Language.ENGLISH' | translate}}</option>
+                        <option value="SPANISH">{{'ratingSystemApp.Language.SPANISH' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.reviewDateTime" for="field_reviewDateTime">Review Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_reviewDateTime" type="datetime-local" class="form-control" name="reviewDateTime" [(ngModel)]="reviewDateTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.rating" for="field_rating">Rating</label>
+                    <input type="number" class="form-control" name="rating" id="field_rating"
+                        [(ngModel)]="review.rating" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.fullRating" for="field_fullRating">Full Rating</label>
+                    <input type="number" class="form-control" name="fullRating" id="field_fullRating"
+                        [(ngModel)]="review.fullRating" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.reviewStatus" for="field_reviewStatus">Review Status</label>
+                    <select class="form-control" name="reviewStatus" [(ngModel)]="review.reviewStatus" id="field_reviewStatus" >
+                        <option value="UNKNOWN">{{'ratingSystemApp.ReviewStatus.UNKNOWN' | translate}}</option>
+                        <option value="NEW_REVIEW">{{'ratingSystemApp.ReviewStatus.NEW_REVIEW' | translate}}</option>
+                        <option value="PROCESSED_REVIEW">{{'ratingSystemApp.ReviewStatus.PROCESSED_REVIEW' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.helpfulVotes" for="field_helpfulVotes">Helpful Votes</label>
+                    <input type="number" class="form-control" name="helpfulVotes" id="field_helpfulVotes"
+                        [(ngModel)]="review.helpfulVotes" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.totalVotes" for="field_totalVotes">Total Votes</label>
+                    <input type="number" class="form-control" name="totalVotes" id="field_totalVotes"
+                        [(ngModel)]="review.totalVotes" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.verifiedPurchase" for="field_verifiedPurchase">Verified Purchase</label>
+                    <input type="checkbox" class="form-control" name="verifiedPurchase" id="field_verifiedPurchase"
+                        [(ngModel)]="review.verifiedPurchase" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.realName" for="field_realName">Real Name</label>
+                    <input type="text" class="form-control" name="realName" id="field_realName"
+                        [(ngModel)]="review.realName" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.review.reviewAnalysis" for="field_reviewAnalysis">Review Analysis</label>
+                    <select class="form-control" id="field_reviewAnalysis" name="reviewAnalysis" [(ngModel)]="review.reviewAnalysisId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="reviewAnalysisOption.id" *ngFor="let reviewAnalysisOption of reviewanalyses; trackBy: trackReviewAnalysisById">{{reviewAnalysisOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

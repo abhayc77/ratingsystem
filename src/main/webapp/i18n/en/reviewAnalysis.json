@@ -1,0 +1,28 @@
+
+{
+    "ratingSystemApp": {
+        "reviewAnalysis" : {
+            "home": {
+                "title": "Review Analyses",
+                "createLabel": "Create a new Review Analysis",
+                "createOrEditLabel": "Create or edit a Review Analysis",
+                "search": "Search for Review Analysis"
+            },
+            "created": "A new Review Analysis is created with identifier {{ param }}",
+            "updated": "A Review Analysis is updated with identifier {{ param }}",
+            "deleted": "A Review Analysis is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Review Analysis {{ id }}?"
+            },
+            "detail": {
+                "title": "Review Analysis"
+            },
+            "uid": "Uid",
+            "sentiment": "Sentiment",
+            "sentimentValue": "Sentiment Value",
+            "reviewAnalysisDateTime": "Review Analysis Date Time",
+            "insight": "Insight",
+            "reviewInsightData": "Review Insight Data"
+        }
+    }
+}

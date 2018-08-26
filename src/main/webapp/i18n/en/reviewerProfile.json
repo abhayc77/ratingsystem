@@ -1,0 +1,27 @@
+
+{
+    "ratingSystemApp": {
+        "reviewerProfile" : {
+            "home": {
+                "title": "Reviewer Profiles",
+                "createLabel": "Create a new Reviewer Profile",
+                "createOrEditLabel": "Create or edit a Reviewer Profile",
+                "search": "Search for Reviewer Profile"
+            },
+            "created": "A new Reviewer Profile is created with identifier {{ param }}",
+            "updated": "A Reviewer Profile is updated with identifier {{ param }}",
+            "deleted": "A Reviewer Profile is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Reviewer Profile {{ id }}?"
+            },
+            "detail": {
+                "title": "Reviewer Profile"
+            },
+            "totalReviews": "Total Reviews",
+            "reviewerRanking": "Reviewer Ranking",
+            "totalHelpfulVotes": "Total Helpful Votes",
+            "recentRating": "Recent Rating",
+            "reviewer": "Reviewer"
+        }
+    }
+}

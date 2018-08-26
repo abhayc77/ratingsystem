@@ -1,0 +1,10 @@
+{
+    "ratingSystemApp": {
+        "ReviewInsight" : {
+            "null": "",
+            "UNKKOWN": "UNKKOWN",
+            "GENUINE": "GENUINE",
+            "FAKE": "FAKE"
+        }
+    }
+}

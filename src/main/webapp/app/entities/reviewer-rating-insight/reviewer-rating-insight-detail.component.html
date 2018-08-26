@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reviewer">
+            <h2><span jhiTranslate="ratingSystemApp.reviewer.detail.title">Reviewer</span> {{reviewer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.reviewerID">Reviewer ID</span></dt>
+                <dd>
+                    <span>{{reviewer.reviewerID}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.uid">Uid</span></dt>
+                <dd>
+                    <span>{{reviewer.uid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.username">Username</span></dt>
+                <dd>
+                    <span>{{reviewer.username}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.firstName">First Name</span></dt>
+                <dd>
+                    <span>{{reviewer.firstName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{reviewer.lastName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.email">Email</span></dt>
+                <dd>
+                    <span>{{reviewer.email}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{reviewer.phoneNumber}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.streetAddress">Street Address</span></dt>
+                <dd>
+                    <span>{{reviewer.streetAddress}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.postalCode">Postal Code</span></dt>
+                <dd>
+                    <span>{{reviewer.postalCode}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.city">City</span></dt>
+                <dd>
+                    <span>{{reviewer.city}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.stateProvince">State Province</span></dt>
+                <dd>
+                    <span>{{reviewer.stateProvince}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.profile">Profile</span></dt>
+                <dd>
+                    <div *ngIf="reviewer.profileId">
+                        <a [routerLink]="['/reviewer-profile-rating-insight', reviewer.profileId, 'view']">{{reviewer.profileId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.reviewer.review">Review</span></dt>
+                <dd>
+                    <span *ngFor="let review of reviewer.reviews; let last = last">
+                        <a [routerLink]="['/review-rating-insight', review?.id, 'view' ]">{{review.title}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reviewer-rating-insight', reviewer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

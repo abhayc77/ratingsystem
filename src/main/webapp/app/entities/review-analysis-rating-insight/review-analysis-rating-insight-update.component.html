@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-review-analysis-rating-insight-heading" jhiTranslate="ratingSystemApp.reviewAnalysis.home.createOrEditLabel">Create or edit a Review Analysis</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!reviewAnalysis.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="reviewAnalysis.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewAnalysis.uid" for="field_uid">Uid</label>
+                    <input type="text" class="form-control" name="uid" id="field_uid"
+                        [(ngModel)]="reviewAnalysis.uid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewAnalysis.sentiment" for="field_sentiment">Sentiment</label>
+                    <select class="form-control" name="sentiment" [(ngModel)]="reviewAnalysis.sentiment" id="field_sentiment" >
+                        <option value="POSITIVE">{{'ratingSystemApp.ReviewSentiment.POSITIVE' | translate}}</option>
+                        <option value="NEUTRAL">{{'ratingSystemApp.ReviewSentiment.NEUTRAL' | translate}}</option>
+                        <option value="NEGATIVE">{{'ratingSystemApp.ReviewSentiment.NEGATIVE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewAnalysis.sentimentValue" for="field_sentimentValue">Sentiment Value</label>
+                    <input type="number" class="form-control" name="sentimentValue" id="field_sentimentValue"
+                        [(ngModel)]="reviewAnalysis.sentimentValue" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewAnalysis.reviewAnalysisDateTime" for="field_reviewAnalysisDateTime">Review Analysis Date Time</label>
+                    <div class="d-flex">
+                        <input id="field_reviewAnalysisDateTime" type="datetime-local" class="form-control" name="reviewAnalysisDateTime" [(ngModel)]="reviewAnalysisDateTime"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewAnalysis.insight" for="field_insight">Insight</label>
+                    <select class="form-control" name="insight" [(ngModel)]="reviewAnalysis.insight" id="field_insight" >
+                        <option value="UNKKOWN">{{'ratingSystemApp.ReviewInsight.UNKKOWN' | translate}}</option>
+                        <option value="GENUINE">{{'ratingSystemApp.ReviewInsight.GENUINE' | translate}}</option>
+                        <option value="FAKE">{{'ratingSystemApp.ReviewInsight.FAKE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="ratingSystemApp.reviewAnalysis.reviewInsightData" for="field_reviewInsightData">Review Insight Data</label>
+                    <input type="text" class="form-control" name="reviewInsightData" id="field_reviewInsightData"
+                        [(ngModel)]="reviewAnalysis.reviewInsightData" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

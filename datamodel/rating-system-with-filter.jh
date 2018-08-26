@@ -1,0 +1,119 @@
+entity Product {
+	productID String,
+    uid String,
+	productName String,
+	price Double,
+	shortDescription String,
+	longDescription String,
+	productImageURL String,
+	productURL String,
+	supplierID String,
+    averageRating Float
+	ratingCount Integer,
+	productStatus ProductStatus
+}
+
+
+/**
+ * Review entity.
+ * @author Abhay.
+ */
+entity Review {
+	productID String,
+    uid String,
+    productURL String,
+    title String,
+    reviewContent String,
+    language Language,
+    reviewDateTime ZonedDateTime,
+    rating Integer,
+    fullRating Integer,
+	reviewStatus ReviewStatus,
+    helpfulVotes Integer,
+	totalVotes Integer,
+	verifiedPurchase Boolean,
+	realName String	
+}
+
+entity ReviewAnalysis{
+	uid String,
+    sentiment ReviewSentiment,
+    sentimentValue Float,
+    reviewAnalysisDateTime ZonedDateTime,
+	insight ReviewInsight,
+	reviewInsightData String
+}
+
+/**
+ * The Reviewer entity.
+ */
+entity Reviewer {
+	reviewerID String,
+    uid String,
+    username String,
+    firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+    streetAddress String,
+	postalCode String,
+	city String,
+	stateProvince String
+}
+
+entity ReviewerProfile	{
+	totalReviews Long,
+	reviewerRanking Float,
+    totalHelpfulVotes Long, 
+    recentRating String
+}
+
+
+enum ReviewStatus{
+	UNKNOWN, NEW_REVIEW, PROCESSED_REVIEW	
+}
+
+enum ProductStatus{
+	UNKNOWN, ACTIVE, DISCONTINUED  
+}
+
+enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
+
+enum ReviewSentiment{
+	POSITIVE, NEUTRAL, NEGATIVE
+}
+
+enum ReviewInsight{
+	UNKKOWN, GENUINE, FAKE
+}
+
+relationship OneToOne {
+	Review{reviewAnalysis} to ReviewAnalysis
+}
+
+relationship OneToOne {
+	Reviewer {profile} to ReviewerProfile {reviewer(firstName)} 
+}
+
+relationship ManyToMany {
+	Reviewer{review(title)} to Review {reviewer}, 
+    Product{review(title)} to Review {product} 
+}
+
+
+// Set pagination options
+paginate Review, Reviewer, ReviewerProfile  with infinite-scroll
+paginate Product, ReviewAnalysis with pagination
+
+dto * with mapstruct
+
+search * with elasticsearch 
+
+service all with serviceClass
+
+filter Product, Review, Reviewer, ReviewerProfile, ReviewAnalysis
+
+// Set an angular suffix
+angularSuffix * with ratingInsight

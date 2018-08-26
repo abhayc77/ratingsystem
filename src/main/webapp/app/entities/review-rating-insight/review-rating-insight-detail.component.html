@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="review">
+            <h2><span jhiTranslate="ratingSystemApp.review.detail.title">Review</span> {{review.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="ratingSystemApp.review.productID">Product ID</span></dt>
+                <dd>
+                    <span>{{review.productID}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.uid">Uid</span></dt>
+                <dd>
+                    <span>{{review.uid}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.productURL">Product URL</span></dt>
+                <dd>
+                    <span>{{review.productURL}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.title">Title</span></dt>
+                <dd>
+                    <span>{{review.title}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.reviewContent">Review Content</span></dt>
+                <dd>
+                    <span>{{review.reviewContent}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.language">Language</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ratingSystemApp.Language.' + review.language}}">{{review.language}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.reviewDateTime">Review Date Time</span></dt>
+                <dd>
+                    <span>{{review.reviewDateTime}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.rating">Rating</span></dt>
+                <dd>
+                    <span>{{review.rating}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.fullRating">Full Rating</span></dt>
+                <dd>
+                    <span>{{review.fullRating}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.reviewStatus">Review Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'ratingSystemApp.ReviewStatus.' + review.reviewStatus}}">{{review.reviewStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.helpfulVotes">Helpful Votes</span></dt>
+                <dd>
+                    <span>{{review.helpfulVotes}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.totalVotes">Total Votes</span></dt>
+                <dd>
+                    <span>{{review.totalVotes}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.verifiedPurchase">Verified Purchase</span></dt>
+                <dd>
+                    <span>{{review.verifiedPurchase}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.realName">Real Name</span></dt>
+                <dd>
+                    <span>{{review.realName}}</span>
+                </dd>
+                <dt><span jhiTranslate="ratingSystemApp.review.reviewAnalysis">Review Analysis</span></dt>
+                <dd>
+                    <div *ngIf="review.reviewAnalysisId">
+                        <a [routerLink]="['/review-analysis-rating-insight', review.reviewAnalysisId, 'view']">{{review.reviewAnalysisId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/review-rating-insight', review.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+{
+    "ratingSystemApp": {
+        "ReviewStatus" : {
+            "null": "",
+            "UNKNOWN": "UNKNOWN",
+            "NEW_REVIEW": "NEW_REVIEW",
+            "PROCESSED_REVIEW": "PROCESSED_REVIEW"
+        }
+    }
+}

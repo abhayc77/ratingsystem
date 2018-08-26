@@ -1,0 +1,35 @@
+
+{
+    "ratingSystemApp": {
+        "reviewer" : {
+            "home": {
+                "title": "Reviewers",
+                "createLabel": "Create a new Reviewer",
+                "createOrEditLabel": "Create or edit a Reviewer",
+                "search": "Search for Reviewer"
+            },
+            "created": "A new Reviewer is created with identifier {{ param }}",
+            "updated": "A Reviewer is updated with identifier {{ param }}",
+            "deleted": "A Reviewer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Reviewer {{ id }}?"
+            },
+            "detail": {
+                "title": "Reviewer"
+            },
+            "reviewerID": "Reviewer ID",
+            "uid": "Uid",
+            "username": "Username",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email",
+            "phoneNumber": "Phone Number",
+            "streetAddress": "Street Address",
+            "postalCode": "Postal Code",
+            "city": "City",
+            "stateProvince": "State Province",
+            "profile": "Profile",
+            "review": "Review"
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "name": "ReviewerProfile",
+    "fields": [
+        {
+            "fieldName": "totalReviews",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "reviewerRanking",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "totalHelpfulVotes",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "recentRating",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "reviewer",
+            "otherEntityName": "reviewer",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "profile"
+        }
+    ],
+    "changelogDate": "20180825203836",
+    "entityTableName": "reviewer_profile",
+    "dto": "mapstruct",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*",
+    "searchEngine": "elasticsearch",
+    "angularJSSuffix": "ratingInsight"
+}
